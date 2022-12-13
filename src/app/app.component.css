@@ -40,6 +40,18 @@
   font-size: 50px;
 }
 
+.normal {
+  color: #ff9100 !important;
+}
+
+.cold {
+  color: blue !important;
+}
+
+.hot {
+  color: black !important;
+}
+
 .lower-deck {
   padding: 20px;
 }

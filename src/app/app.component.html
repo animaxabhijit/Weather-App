@@ -8,10 +8,13 @@
 >
   <div class="upper-deck" fxFlex="50">
     <div class="image">
-      <img src="../assets/images/hotWeather.jpg" *ngIf="weatherData.current.temp_c > 15"/>
+      <img src="../assets/images/hotWeather.jpg" *ngIf="weatherData.current.temp_c > 20"/>
+      <img src="../assets/images/normalWeather.jpg"
+           *ngIf="weatherData.current.temp_c >= 15 && weatherData.current.temp_c <= 20"/>
       <img src="../assets/images/coldWeather.jpg" *ngIf="weatherData.current.temp_c < 15"/>
     </div>
-    <div class="weather-info" fxLayoutAlign="center center" fxLayout="column" fxLayoutGap="50px">
+    <div class="weather-info" fxLayoutAlign="center center" fxLayout="column" fxLayoutGap="50px"
+         [ngClass]="{'cold':weatherData.current.temp_c < 15, 'hot': weatherData.current.temp_c > 20, 'normal':weatherData.current.temp_c >= 15 && weatherData.current.temp_c <= 20}">
       <div class="city-name">{{weatherData.location.name}}</div>
       <div class="tempreature">{{ weatherData.current.temp_c | number : "1.0-0" }} °C</div>
     </div>
@@ -22,7 +25,9 @@
     fxLayout="column"
     fxLayoutAlign="center center"
   >
-    <div class="label">More Information</div>
+    <div class="label"
+    >More Information
+    </div>
     <div class="more-info" fxLayout="row wrap">
       <div
         class="weather-parameter"

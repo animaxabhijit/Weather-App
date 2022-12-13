@@ -32,7 +32,7 @@ export class AppComponent implements OnInit {
       .subscribe((response) => {
         this.weatherData = response;
       }, (error) => {
-        console.log(error)
+        alert(error.error.error.message)
       })
   }
 }
